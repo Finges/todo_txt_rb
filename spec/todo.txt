@@ -1,0 +1,8 @@
+(A) This is a test todo 1
+(A) 2012-12-12 This test todo has a creation date
+2011-11-11 this has a creation date no priority
+This has a context @Car @Work @Phone
+This has a project +work +programming +beer
+This has both Context and project +beer @car
+x this is a completed todo
+x 2012-01-13 this is a completed todo with completion date +beer
