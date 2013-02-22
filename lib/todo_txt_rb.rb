@@ -1,5 +1,3 @@
 require "todo_txt_rb/version"
-
-module TodoTxtRb
-  # Your code goes here...
-end
+require "todo_txt_rb/todo"
+require "todo_txt_rb/list"
