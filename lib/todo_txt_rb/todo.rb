@@ -1,6 +1,6 @@
 module TodoTxt
 
-	class Todo
+	class Todo 
 
 		attr_accessor :todo
 
@@ -9,7 +9,12 @@ module TodoTxt
 		end
 
 		def priority todo=@todo  
-			todo[/^\([a-zA-Z]\)/].gsub(/[()]/, "").upcase
+			priority = todo[/^\([a-zA-Z]\)/]
+			if priority == nil
+				return false 
+			else
+				priority.gsub(/[()]/, "").upcase
+			end
 		end
 		
 		def projects todo=@todo
@@ -34,6 +39,27 @@ module TodoTxt
 			else
 				@todo = todo.sub(/^\([A-Z]\)/, "(#{priority})")
 			end	
+		end
+
+		def is_complete? todo=@todo
+			if todo.index(/^x/) == nil
+				false
+			else
+				true
+			end
+		end	
+
+		def is_active? todo=@todo
+			if todo.index(/^x/) == nil
+				true
+			else
+				false
+			end
+		end
+
+		def mark_complete! todo=@todo
+			@todo = "x #{Date.today.strftime("%F")} " + @todo 
+			
 		end
 	end
 end

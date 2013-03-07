@@ -23,6 +23,13 @@ describe TodoTxt::Todo do
 			subject = TodoTxt::Todo.new input
 			subject.priority.should eq expected
 		end
+
+		it "returns false if there is no priority" do
+			input = "there is no priority"
+			expected = false
+			subject = TodoTxt::Todo.new input
+			subject.priority.should eq expected
+		end
 	end
 	
 	describe '#projects' do
@@ -83,4 +90,50 @@ describe TodoTxt::Todo do
 			subject.change_priority!('C').should eq expected
 		end	
 	end
+
+	describe '#is_complete?' do
+		it "returns true if todo starts with 'x'" do
+			input = "x (A) this is a completed todo"
+			subject = TodoTxt::Todo.new input
+			subject.is_complete?.should eq true
+		end
+
+		it "returns false if todo does not start with 'x'" do
+			input = "(A) this is not a completed todo"
+			subject = TodoTxt::Todo.new input
+			subject.is_complete?.should eq false
+		end
+	end
+
+	describe '#is_active?' do
+		it "returns true if the todo is not complete" do
+			input = "(A) this is not a complete todo"
+			subject = TodoTxt::Todo.new input
+			subject.is_active?.should eq true
+		end
+
+		it "returns false if the todo is complete" do
+			input = "x (A) this is a complete todo"
+			subject = TodoTxt::Todo.new input
+			subject.is_active?.should eq false
+		end
+	end
+
+	describe '#mark_complete' do
+		it "adds a 'x' to the beginning of a todo" do
+			expected = "x #{Date.today.strftime("%F")} (A) this is a todo"
+			input = "(A) this is a todo"
+			subject = TodoTxt::Todo.new input
+			subject.mark_complete!.should eq expected
+		end
+
+		it "adds the completed date to the todo" do
+			expected = "x #{Date.today.strftime("%F")} (A) this is a todo"
+			input = "(A) this is a todo"
+			subject = TodoTxt::Todo.new input
+			subject.mark_complete!.should eq expected	
+		end
+	end
+
+
 end

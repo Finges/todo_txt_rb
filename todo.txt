@@ -1,8 +1,8 @@
-#<TodoTxt::Todo:0x007fecfa4ac470>
-#<TodoTxt::Todo:0x007fecfa4ac2b8>
-#<TodoTxt::Todo:0x007fecfa4ac420>
-#<TodoTxt::Todo:0x007fecfa4ac3f8>
-#<TodoTxt::Todo:0x007fecfa4ac3d0>
-#<TodoTxt::Todo:0x007fecfa4ac3a8>
-#<TodoTxt::Todo:0x007fecfa4ac380>
-#<TodoTxt::Todo:0x007fecfa4ac358>
+(A) This is a test todo 1
+(B) 2012-12-12 This test todo has a creation date
+2011-11-11 this has a creation date no priority
+This has a context @Car @Work @Phone
+This has a project +work +programming +beer
+This has both Context and project +beer @car
+x this is a completed todo
+x 2012-01-13 this is a completed todo with completion date +beer
