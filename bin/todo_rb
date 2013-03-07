@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+require_relative '../lib/todo_txt_rb'
+
+include TodoTxt
+test_file = "todo.txt"
+todolist = TodoTxt::List.new test_file
+
+case ARGV[0]
+when "list"
+	TodoTxt::print_todo_list todolist
+when "add"
+	todolist.add_todo ARGV.drop(1).join(" ")
+when "rm"
+	todolist.remove_todo ARGV[1].to_i
+when "do"
+	todolist.complete_todo ARGV[1].to_i
+when "replace"
+	todolist.edit_todo ARGV[1].to_i, ARGV.drop(2).join(" ")
+when "listproj"
+	puts todolist.list_projects.join(", ")
+when "listcontext"
+	puts todolist.list_contexts.join(", ")
+when "--init"
+	TodoTxt::init_config 
+else
+	puts "test!"
+end
