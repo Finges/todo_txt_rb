@@ -1,10 +1,9 @@
 require 'fakefs/spec_helpers'
-
 describe 'Todo_rb' do
 
 	before(:each) do
 			include FakeFS::SpecHelpers
-			File.open("todo.txt", "w") do |f|
+			File.open(Dir.home.to_s + "/todo.txt", "w") do |f|
 				f.puts "(A) This is a test todo 1"
 				f.puts "(B) 2012-12-12 This test todo has a creation date" 
 				f.puts "2011-11-11 this has a creation date no priority" 
@@ -14,6 +13,7 @@ describe 'Todo_rb' do
 				f.puts "x this is a completed todo" 
 				f.puts "x 2012-01-13 this is a completed todo with completion date +beer"	
 			end
+			`bin/todo_rb --init`	
 		end
 
 	describe 'list' do

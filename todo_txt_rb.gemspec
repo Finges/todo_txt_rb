@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = TodoTxtRb::VERSION
   gem.authors       = ["Chris Lee"]
   gem.email         = ["finges@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = "Ruby Implementation of the Todo.txt CLI"
+  gem.summary       = "Ruby Implementation of the Todo.txt CLI"
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)

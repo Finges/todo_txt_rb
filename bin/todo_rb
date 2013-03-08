@@ -1,9 +1,13 @@
 #!/usr/bin/env ruby
 require_relative '../lib/todo_txt_rb'
-
+require 'yaml'
 include TodoTxt
-test_file = "todo.txt"
-todolist = TodoTxt::List.new test_file
+
+if File.exists?(Dir.home.to_s + '/.todocfg.yml')
+	todo_txt = YAML::load(File.open(Dir.home.to_s + '/.todocfg.yml'))["todo_file_location"]
+	todolist = TodoTxt::List.new todo_txt
+end
+
 
 case ARGV[0]
 when "list"
@@ -23,5 +27,29 @@ when "listcontext"
 when "--init"
 	TodoTxt::init_config 
 else
-	puts "test!"
+	puts "\n\nAvailable Commands:"
+	puts "todo_rb add 'Thing you need to do'"
+	puts "   Adds 'Thing you need to do' to your todo.txt file"
+	puts ""
+	puts "todo_rb list"
+	puts "   Lists your active todo's from your todo.txt file"
+	puts ""
+	puts "todo_rb rm <todo number>"
+	puts "   Removes a todo based on the todo number received"
+	puts ""
+	puts "todo_rb do <todo number>"
+	puts "   Marks a todo complete"
+	puts ""
+	puts "todo_rb replace <todo number> 'New thing you need to do'"
+	puts "   Replaces the Todo with a new todo"
+	puts ""
+	puts "todo_rb listproj"
+	puts "   lists all active projects"
+	puts ""
+	puts "todo_rb listcontext"
+	puts "   lists all active contexts"
+	puts ""
+	puts "todo_rb --init"
+	puts "   Creates todocfg.yml file in users home folder. Please edit this"
+	puts "   file with the location of your todo.txt file"
 end

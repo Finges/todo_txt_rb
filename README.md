@@ -1,24 +1,40 @@
 # TodoTxtRb
 
-TODO: Write a gem description
+Todo.txt CLI implemented in Ruby
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'todo_txt_rb'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Install it yourself as:
 
     $ gem install todo_txt_rb
 
 ## Usage
 
-TODO: Write usage instructions here
+Available Commands:"
+"todo_rb add 'Thing you need to do'"
+  Adds 'Thing you need to do' to your todo.txt file"
+
+"todo_rb list"
+  Lists your active todo's from your todo.txt file"
+
+"todo_rb rm <todo number>"
+  Removes a todo based on the todo number received"
+
+"todo_rb do <todo number>"
+  Marks a todo complete"
+
+"todo_rb replace <todo number> 'New thing you need to do'"
+  Replaces the Todo with a new todo"
+
+"todo_rb listproj"
+  lists all active projects"
+
+"todo_rb listcontext"
+  lists all active contexts"
+
+"todo_rb --init"
+  Creates todocfg.yml file in users home folder. Please edit this"
+  file with the location of your todo.txt file"
 
 ## Contributing
 
